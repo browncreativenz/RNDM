@@ -29,7 +29,7 @@ https://browncreativenz.github.io/RNDM/
 /assets
     /bg.gif             → Background texture
     /img1.jpg … img40   → Curated image library
-    /masks/mask1.svg … mask15.svg → Shape masks
+/masks/mask1.svg … mask15.svg → Shape masks
 index.html              → Main application
 ```
 
