@@ -13,7 +13,7 @@ Each composition exists only briefly before fading into the next.
 ---
 
 ## Live Demo
-[https://rndm.scottbrown.co.nz](https://browncreativenz.github.io/RNDM/)
+https://browncreativenz.github.io/RNDM/
 
 ---
 
