@@ -1,4 +1,4 @@
-  const IMAGES = [
+ const IMAGES = [                                      // Add paths to all the images in the assets folder
     'assets/img1.jpg',
     'assets/img2.jpg',
     'assets/img3.jpg',
@@ -41,7 +41,7 @@
     'assets/img40.png'  
   ];
 
-  const PALETTES = {
+  const PALETTES = {                                                // Customise color schemes by "mood"
     acid: ['#ff00ff','#00ffff','#ffff00'],
     vivid: ['#be4ff1','#00ff84'],
     future: ['#ff0033','#00bfff'],
@@ -50,11 +50,16 @@
     greenaf: ['#014131','#c8ffc8','#ff3c42'],  
     blurple: ['#ffb901','#583dfa','#bfc3ff'],
     fluro: ['#3cff00'],
-    vividblue: ['#004eff'],
-    olive: ['#92c28d', '#816d98']  
+    earthensky: ['#004eff', '#afa191'],
+    olive: ['#92c28d', '#816d98'],
+    pastel: ['#F3E2D4', '#C5B0CD', '#415E72'],
+    greyscale: ['#57564F', '#57564F', '#DDDAD0'],
+    greenout: ['#437057', '#97B067', '#E3DE61'],
+    vampire: ['#511D43', '#901E3E', '#DC2525' ],  
+    fire: ['#FAB12F', '#FA812F', '#FA4032']  
   };
 
-  const MASKS = [
+  const MASKS = [                                                   // Add paths to all the svg masks in the masks folder
     'masks/mask1.svg',
     'masks/mask2.svg',
     'masks/mask3.svg',
@@ -72,15 +77,15 @@
     'masks/mask15.svg'  
   ];
 
-  const SHAPE_BLEND_MODES = ['screen','multiply'];
-  const IMAGE_BLEND_MODES = [
+  const SHAPE_BLEND_MODES = ['screen','multiply'];                  // Blend modes for shape objects
+  const IMAGE_BLEND_MODES = [                                       // Blend mode for images
     'normal','multiply','screen','overlay','darken',
     'lighten','color-dodge','color-burn','hard-light',
     'soft-light','difference','exclusion','saturation'
   ];
 
-  const NUM_SHAPES = 6;
-  const NUM_IMAGES = 6;
+  const NUM_SHAPES = 6;                                             // Number of shapes rendered to screen
+  const NUM_IMAGES = 6;                                             // Number of images rendered to screen
 
   const rand=(min,max)=>Math.random()*(max-min)+min;
   const pick=arr=>arr[Math.floor(Math.random()*arr.length)];
@@ -98,27 +103,32 @@
     return el;
   }
 
-  function createMaskedImage() {
-    const el = document.createElement('div');
-    el.classList.add('element');
-    const src=pick(IMAGES),mask=pick(MASKS);
-    const w=rand(30,100),h=rand(30,100);
-    el.style.width=w+'vw';
-    el.style.height=h+'vh';
-    el.style.left=rand(0,100-w)+'vw';
-    el.style.top=rand(0,100-h)+'vh';
-    el.style.backgroundImage=`url(${src})`;
-    el.style.backgroundSize='cover';
-    el.style.backgroundPosition='center';
-    el.style.webkitMaskImage=`url(${mask})`;
-    el.style.maskImage=`url(${mask})`;
-    el.style.webkitMaskSize='contain';
-    el.style.maskSize='contain';
-    el.style.webkitMaskRepeat='no-repeat';
-    el.style.maskRepeat='no-repeat';
-    el.style.mixBlendMode=pick(IMAGE_BLEND_MODES);
-    return el;
-  }
+function createMaskedImage() {
+  const el = document.createElement('div');
+  el.classList.add('element');
+  const src = pick(IMAGES), mask = pick(MASKS);
+  const w = rand(30,100), h = rand(30,100);
+  el.style.width = w+'vw';
+  el.style.height = h+'vh';
+  el.style.left = rand(0,100-w)+'vw';
+  el.style.top = rand(0,100-h)+'vh';
+  el.style.backgroundImage = `url(${src})`;
+  el.style.backgroundSize = 'cover';
+
+                                                                    // Randomize both vertical and horizontal alignment
+  const vertical = pick(['top','center','bottom']);
+  const horizontal = pick(['left','center','right']);
+  el.style.backgroundPosition = `${vertical} ${horizontal}`;
+
+  el.style.webkitMaskImage = `url(${mask})`;
+  el.style.maskImage = `url(${mask})`;
+  el.style.webkitMaskSize = 'contain';
+  el.style.maskSize = 'contain';
+  el.style.webkitMaskRepeat = 'no-repeat';
+  el.style.maskRepeat = 'no-repeat';
+  el.style.mixBlendMode = pick(IMAGE_BLEND_MODES);
+  return el;
+}
 
   function generate() {
     const art=document.getElementById('art-container');
@@ -128,22 +138,22 @@
     for(let i=0;i<NUM_IMAGES;i++){ art.appendChild(createMaskedImage()); }
   }
 
-  // Fade using overlay instead of fading artwork itself
+                                                                    // Fade using overlay instead of fading artwork itself
   function startLoop(){
     const overlay=document.getElementById('fade-overlay');
-    generate();            // draw a new piece
-    overlay.style.opacity=0;  // fade IN
+    generate();                                                     // draw a new piece
+    overlay.style.opacity=0;                                        // fade IN
 
     setTimeout(()=>{
-      overlay.style.opacity=1; // fade OUT
+      overlay.style.opacity=1;                                      // fade OUT
       setTimeout(()=>{
-        generate();           // regenerate in background
-        startLoop();          // loop again
+        generate();                                                 // regenerate in background
+        startLoop();                                                // loop again
       },2000);
     },20000);
   }
 
-  startLoop();
+  startLoop();                                                      // Never let the suits get you dowm
 
 // Request immersive fullscreen after first user interaction
 function requestFullscreen() {
