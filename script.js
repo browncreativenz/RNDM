@@ -48,7 +48,6 @@
     mellow: ['#644fda','#e9f3a7'],
     fire: ['#ff3f1a','#97d6df'],
     greenaf: ['#014131','#c8ffc8','#ff3c42'],  
-    blurple: ['#ffb901','#583dfa','#bfc3ff'],
     fluro: ['#3cff00'],
     blue: ['#004eff'],
     olive: ['#92c28d','#816d98'],
