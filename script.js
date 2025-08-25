@@ -42,7 +42,7 @@
   ];
 
   const PALETTES = {                                                // Customise color schemes by "mood"
-    acid: ['#ff00ff','#00ffff','#ffff00'],
+    acid: ['#ff00ff','#00ffff'],
     vivid: ['#be4ff1','#00ff84'],
     future: ['#ff0033','#00bfff'],
     mellow: ['#644fda','#e9f3a7'],
@@ -50,13 +50,13 @@
     greenaf: ['#014131','#c8ffc8','#ff3c42'],  
     blurple: ['#ffb901','#583dfa','#bfc3ff'],
     fluro: ['#3cff00'],
-    earthensky: ['#004eff', '#afa191'],
+    earthensky: ['#004eff', '#c2b49f'],
     olive: ['#92c28d', '#816d98'],
-    pastel: ['#F3E2D4', '#C5B0CD', '#415E72'],
-    greyscale: ['#57564F', '#57564F', '#DDDAD0'],
-    greenout: ['#437057', '#97B067', '#E3DE61'],
-    vampire: ['#511D43', '#901E3E', '#DC2525' ],  
-    fire: ['#FAB12F', '#FA812F', '#FA4032']  
+    pastel: ['#F3E2D4', '#C5B0CD'],
+    greenout: ['#437057', '#97B067'],
+    vampire: ['#901E3E', '#DC2525' ],  
+    fire: ['#FAB12F', '#FA4032'],
+    cyberpunk: ['#ffea00']  
   };
 
   const MASKS = [                                                   // Add paths to all the svg masks in the masks folder
