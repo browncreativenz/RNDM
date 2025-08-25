@@ -52,11 +52,9 @@
     fluro: ['#3cff00'],
     earthensky: ['#004eff', '#c2b49f'],
     olive: ['#92c28d', '#816d98'],
-    pastel: ['#F3E2D4', '#C5B0CD'],
     greenout: ['#437057', '#97B067'],
-    vampire: ['#901E3E', '#DC2525' ],  
-    fire: ['#FAB12F', '#FA4032'],
-    cyberpunk: ['#ffea00']  
+    dreampunk: ['#7700a6', '#fe00fe' ],  
+    cyberpunk: ['#FCEE0C', '#03D8F3']  
   };
 
   const MASKS = [                                                   // Add paths to all the svg masks in the masks folder
