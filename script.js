@@ -50,11 +50,10 @@
     greenaf: ['#014131','#c8ffc8','#ff3c42'],  
     blurple: ['#ffb901','#583dfa','#bfc3ff'],
     fluro: ['#3cff00'],
-    earthensky: ['#004eff', '#c2b49f'],
-    olive: ['#92c28d', '#816d98'],
-    greenout: ['#437057', '#97B067'],
-    dreampunk: ['#7700a6', '#fe00fe' ],  
-    cyberpunk: ['#FCEE0C', '#03D8F3']  
+    blue: ['#004eff'],
+    olive: ['#92c28d','#816d98'],
+    dreampunk: ['#7700a6','#fe00fe' ],  
+    cyberpunk: ['#FCEE0C','#03D8F3']  
   };
 
   const MASKS = [                                                   // Add paths to all the svg masks in the masks folder
